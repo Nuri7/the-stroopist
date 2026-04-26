@@ -10,21 +10,25 @@ interface MenuCategory { id: string; label: string; emoji: string; image: string
 
 const menuCategories: MenuCategory[] = [
   {
-    id: "stroopwafels", label: "Stroopwafels", emoji: "🧇",
-    image: "/stroopwafel-toppings.png",
-    imageAlt: "Assorted stroopwafels with creative toppings",
+    id: "stroopwafels",
+    label: "Stroopwafels",
+    emoji: "🧇",
+    image: "/the-stroopist/stroopwafel-toppings.png",
+    imageAlt: "Assorted stroopwafels with creative toppings — chocolate, caramel, pistachio and berries",
     note: "Choose your favourite topping!",
     items: [
       { name: "Stroopwafel Classic", price: "€7.00" },
       { name: "Strawberry Cup", price: "€8.00" },
       { name: "Strawberry Choco", price: "€10.00" },
-      { name: "Dubai Cup", price: "€13.50", note: "Premium" },
+      { name: "Dubai Cup", price: "€13.50", note: "Our premium creation" },
     ],
   },
   {
-    id: "coffee", label: "Coffee", emoji: "☕",
-    image: "/matcha-coffee.png",
-    imageAlt: "Specialty coffee at The Stroopist Amsterdam",
+    id: "coffee",
+    label: "Coffee",
+    emoji: "☕",
+    image: "/the-stroopist/matcha-coffee.png",
+    imageAlt: "Specialty coffee and matcha latte at The Stroopist Amsterdam",
     note: "Ethiopian • Colombian • Brazilian beans",
     items: [
       { name: "Espresso", price: "€3.00" },
@@ -40,9 +44,11 @@ const menuCategories: MenuCategory[] = [
     ],
   },
   {
-    id: "iced", label: "Iced Coffee", emoji: "🧊",
-    image: "/matcha-coffee.png",
-    imageAlt: "Iced specialty coffee drinks",
+    id: "iced",
+    label: "Iced Coffee",
+    emoji: "🧊",
+    image: "/the-stroopist/matcha-coffee.png",
+    imageAlt: "Iced specialty coffee drinks at The Stroopist",
     items: [
       { name: "Iced Americano", price: "€5.00" },
       { name: "Iced Latte", price: "€6.50" },
@@ -54,8 +60,11 @@ const menuCategories: MenuCategory[] = [
     ],
   },
   {
-    id: "specialty", label: "Specialty", emoji: "✨",
-    image: "/matcha-coffee.png", imageAlt: "V60 pour-over and cold brew",
+    id: "specialty",
+    label: "Specialty",
+    emoji: "✨",
+    image: "/the-stroopist/matcha-coffee.png",
+    imageAlt: "V60 pour-over filter coffee and cold brew at The Stroopist",
     items: [
       { name: "V60 Filter Coffee", price: "€6.50" },
       { name: "Cold Brew", price: "€7.50" },
@@ -63,8 +72,10 @@ const menuCategories: MenuCategory[] = [
     ],
   },
   {
-    id: "matcha", label: "Matcha & Hojicha", emoji: "🍵",
-    image: "/matcha-coffee.png",
+    id: "matcha",
+    label: "Matcha & Hojicha",
+    emoji: "🍵",
+    image: "/the-stroopist/matcha-coffee.png",
     imageAlt: "Japanese matcha latte — one of the best in Amsterdam",
     note: "Best matcha in Amsterdam!",
     items: [
@@ -76,8 +87,11 @@ const menuCategories: MenuCategory[] = [
     ],
   },
   {
-    id: "chai", label: "Indian Chai", emoji: "🫖",
-    image: "/matcha-coffee.png", imageAlt: "Authentic Indian chai latte",
+    id: "chai",
+    label: "Indian Chai",
+    emoji: "🫖",
+    image: "/the-stroopist/matcha-coffee.png",
+    imageAlt: "Authentic Indian chai latte at The Stroopist café",
     items: [
       { name: "Chai Latte", price: "€6.00" },
       { name: "Chai Masala", price: "€6.00" },
@@ -87,8 +101,11 @@ const menuCategories: MenuCategory[] = [
     ],
   },
   {
-    id: "waffles", label: "Waffles", emoji: "🍫",
-    image: "/breakfast-spread.png", imageAlt: "Belgian waffles with toppings",
+    id: "waffles",
+    label: "Waffles",
+    emoji: "🍫",
+    image: "/the-stroopist/breakfast-spread.png",
+    imageAlt: "Belgian waffles with chocolate and strawberry toppings",
     items: [
       { name: "Waffle Classic", price: "€6.50" },
       { name: "Waffle Ice Cream & Sauce", price: "€11.00" },
@@ -97,8 +114,11 @@ const menuCategories: MenuCategory[] = [
     ],
   },
   {
-    id: "smoothies", label: "Smoothies", emoji: "🥤",
-    image: "/breakfast-spread.png", imageAlt: "Fresh fruit smoothies",
+    id: "smoothies",
+    label: "Smoothies",
+    emoji: "🥤",
+    image: "/the-stroopist/breakfast-spread.png",
+    imageAlt: "Fresh fruit smoothies at The Stroopist",
     items: [
       { name: "Sunshine (Pineapple + Mango + Strawberry)", price: "€8.50" },
       { name: "Paradise (Mango + Banana)", price: "€8.50" },
@@ -107,8 +127,11 @@ const menuCategories: MenuCategory[] = [
     ],
   },
   {
-    id: "breakfast", label: "Breakfast & Lunch", emoji: "🍳",
-    image: "/breakfast-spread.png", imageAlt: "Fresh breakfast spread",
+    id: "breakfast",
+    label: "Breakfast & Lunch",
+    emoji: "🍳",
+    image: "/the-stroopist/breakfast-spread.png",
+    imageAlt: "Fresh breakfast spread including toast, yogurt granola and pastries",
     items: [
       { name: "Toast Peanut Butter & Banana", price: "€5.50" },
       { name: "Toast Cheese & Ham", price: "€7.00" },
@@ -118,8 +141,11 @@ const menuCategories: MenuCategory[] = [
     ],
   },
   {
-    id: "pastries", label: "Pastries", emoji: "🥐",
-    image: "/breakfast-spread.png", imageAlt: "Pastries and cakes",
+    id: "pastries",
+    label: "Pastries",
+    emoji: "🥐",
+    image: "/the-stroopist/breakfast-spread.png",
+    imageAlt: "Pastries and cakes",
     items: [
       { name: "Flat Croissants", price: "€5.50" },
       { name: "Gluten-Free Brownies", price: "€6.00" },

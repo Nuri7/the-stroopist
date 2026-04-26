@@ -42,7 +42,7 @@ export default function Visit() {
               {/* Exterior photo */}
               <div className="rounded-2xl overflow-hidden img-zoom">
                 <Image
-                  src="/cafe-exterior.png"
+                  src="/the-stroopist/cafe-exterior.png"
                   alt="The Stroopist café exterior on Warmoesstraat, Amsterdam"
                   width={640}
                   height={360}

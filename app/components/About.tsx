@@ -19,7 +19,7 @@ export default function About() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden img-zoom warm-glow">
                 <Image
-                  src="/cafe-interior.png"
+                  src="/the-stroopist/cafe-interior.png"
                   alt="The cozy interior of The Stroopist café in Amsterdam"
                   width={640}
                   height={480}
