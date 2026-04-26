@@ -45,6 +45,9 @@ export const metadata: Metadata = {
       "Made-to-order stroopwafels with creative toppings, specialty coffee, matcha & more in the heart of Amsterdam.",
     images: ["/the-stroopist/hero.png"],
   },
+  alternates: {
+    canonical: 'https://nuri7.github.io/the-stroopist',
+  },
   robots: {
     index: true,
     follow: true,
@@ -66,6 +69,48 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CafeOrCoffeeShop",
+              name: "The Stroopist",
+              image: "https://nuri7.github.io/the-stroopist/hero.png",
+              "@id": "https://nuri7.github.io/the-stroopist",
+              url: "https://nuri7.github.io/the-stroopist",
+              telephone: "+31685619233",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Warmoesstraat 143",
+                addressLocality: "Amsterdam",
+                postalCode: "1012 JB",
+                addressCountry: "NL"
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 52.3757,
+                longitude: 4.8965
+              },
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ],
+                  opens: "08:00",
+                  closes: "22:00"
+                }
+              ]
+            })
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

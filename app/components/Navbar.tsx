@@ -19,6 +19,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDarkMode(isDark);
 
     const handleScroll = () => setScrolled(window.scrollY > 50);
