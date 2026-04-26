@@ -16,15 +16,15 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nuri7.github.io"),
-  title: "The Stroopist – Fresh Stroopwafels & Specialty Coffee in Amsterdam",
+  title: "The Stroopist – Best Stroopwafel Amsterdam Center",
   description:
-    "The Stroopist is a cozy specialty café in Amsterdam's De Wallen, famous for made-to-order fresh stroopwafels with creative toppings, specialty coffee, Japanese matcha, Indian chai, and fresh smoothies. Visit us at Warmoesstraat 143.",
+    "Looking for the best stroopwafel in Amsterdam Center? The Stroopist serves fresh, made-to-order stroopwafels with creative toppings, plus specialty coffee and matcha in De Wallen near Dam Square.",
   keywords:
-    "the stroopist amsterdam, stroopwafel amsterdam, best stroopwafel near dam square, specialty coffee amsterdam red light district, japanese matcha amsterdam, warmoesstraat 143, fresh stroopwafels amsterdam, breakfast amsterdam centre",
+    "best stroopwafel amsterdam center, fresh stroopwafel amsterdam, the stroopist amsterdam, custom stroopwafel near dam square, stroopwafel red light district, specialty coffee amsterdam",
   openGraph: {
-    title: "The Stroopist – Fresh Stroopwafels & Specialty Coffee in Amsterdam",
+    title: "The Stroopist – Best Stroopwafel Amsterdam Center",
     description:
-      "A cozy café in Amsterdam's De Wallen. Fresh stroopwafels made to order, specialty coffee, Japanese matcha & more. 5-star rated on TripAdvisor & Google.",
+      "Looking for the best stroopwafel in Amsterdam Center? Fresh stroopwafels made to order with creative toppings near Dam Square.",
     url: "https://nuri7.github.io/the-stroopist",
     siteName: "The Stroopist",
     locale: "en_US",

@@ -130,13 +130,13 @@ export default function Footer() {
               © {currentYear} The Stroopist. All rights reserved. Warmoesstraat 143, Amsterdam.
             </p>
             <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-cream/40">
-              <span>Stroopwafel Amsterdam</span>
+              <span>Best Stroopwafel Amsterdam Center</span>
               <span>•</span>
-              <span>Specialty Coffee Red Light District</span>
+              <span>Fresh Stroopwafel Red Light District</span>
               <span>•</span>
-              <span>Best Matcha Amsterdam</span>
+              <span>Custom Stroopwafel near Dam Square</span>
               <span>•</span>
-              <span>Breakfast Near Dam Square</span>
+              <span>Specialty Coffee Amsterdam</span>
             </div>
           </div>
         </div>
