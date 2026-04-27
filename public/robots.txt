@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nuri7.github.io/the-stroopist/sitemap.xml
+Sitemap: https://thestroopist.nl/sitemap.xml

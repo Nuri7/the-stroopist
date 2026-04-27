@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nuri7.github.io"),
+  metadataBase: new URL("https://thestroopist.nl"),
   title: "The Stroopist – Best Stroopwafel Amsterdam Center",
   description:
     "Looking for the best stroopwafel in Amsterdam Center? The Stroopist serves fresh, made-to-order stroopwafels with creative toppings, plus specialty coffee and matcha in De Wallen near Dam Square.",
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     title: "The Stroopist – Best Stroopwafel Amsterdam Center",
     description:
       "Looking for the best stroopwafel in Amsterdam Center? Fresh stroopwafels made to order with creative toppings near Dam Square.",
-    url: "https://nuri7.github.io/the-stroopist",
+    url: "https://thestroopist.nl",
     siteName: "The Stroopist",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/the-stroopist/hero.png",
+        url: "/hero.png",
         width: 1200,
         height: 630,
         alt: "Fresh stroopwafel with caramel and pistachio at The Stroopist Amsterdam",
@@ -43,10 +43,10 @@ export const metadata: Metadata = {
     title: "The Stroopist – Fresh Stroopwafels & Specialty Coffee",
     description:
       "Made-to-order stroopwafels with creative toppings, specialty coffee, matcha & more in the heart of Amsterdam.",
-    images: ["/the-stroopist/hero.png"],
+    images: ["/hero.png"],
   },
   alternates: {
-    canonical: 'https://nuri7.github.io/the-stroopist',
+    canonical: 'https://thestroopist.nl',
   },
   robots: {
     index: true,
@@ -76,9 +76,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "CafeOrCoffeeShop",
               name: "The Stroopist",
-              image: "https://nuri7.github.io/the-stroopist/hero.png",
-              "@id": "https://nuri7.github.io/the-stroopist",
-              url: "https://nuri7.github.io/the-stroopist",
+              image: "https://thestroopist.nl/hero.png",
+              "@id": "https://thestroopist.nl",
+              url: "https://thestroopist.nl",
               telephone: "+31685619233",
               address: {
                 "@type": "PostalAddress",

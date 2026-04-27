@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const PREFIX = "/the-stroopist";
+const PREFIX = "";
 
 type MenuItem = {
   name: string;
@@ -106,7 +106,7 @@ export default function CoffeePastryPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <a href="/the-stroopist" className="inline-flex items-center gap-2 mb-6 text-caramel-light hover:text-caramel transition-colors text-sm">
+            <a href="/" className="inline-flex items-center gap-2 mb-6 text-caramel-light hover:text-caramel transition-colors text-sm">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
@@ -261,7 +261,7 @@ export default function CoffeePastryPage() {
         {/* Back to home */}
         <div className="text-center mt-16">
           <a
-            href="/the-stroopist"
+            href="/"
             className="inline-flex items-center gap-2 px-8 py-4 bg-caramel hover:bg-caramel-dark text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-caramel/25 hover:shadow-caramel/40"
           >
             ← Back to The Stroopist
