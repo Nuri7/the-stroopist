@@ -3,96 +3,10 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
-
-const PREFIX = "";
-
-type MenuItem = {
-  name: string;
-  price: string;
-  image: string;
-  badge?: string;
-};
-
-type MenuSection = {
-  title: string;
-  subtitle?: string;
-  note?: string;
-  items: MenuItem[];
-};
-
-const menuSections: MenuSection[] = [
-  {
-    title: "Coffee",
-    subtitle: "Ethiopian • Colombian • Brazilian",
-    items: [
-      { name: "Espresso", price: "€3.00", image: `${PREFIX}/drinks/espresso.png` },
-      { name: "Espresso Macchiato", price: "€3.50", image: `${PREFIX}/drinks/espresso.png`, badge: "Recommended" },
-      { name: "Americano", price: "€4.00", image: `${PREFIX}/drinks/espresso.png` },
-      { name: "Cortado", price: "€4.00", image: `${PREFIX}/drinks/espresso.png` },
-      { name: "Latte", price: "€4.50", image: `${PREFIX}/drinks/cappuccino.png` },
-      { name: "Flat White", price: "€4.50", image: `${PREFIX}/drinks/cappuccino.png` },
-      { name: "Mocha", price: "€5.00", image: `${PREFIX}/drinks/mocha.png`, badge: "Recommended" },
-      { name: "Cappuccino", price: "€5.00", image: `${PREFIX}/drinks/cappuccino.png` },
-      { name: "Brown Sugar Latte", price: "€5.50", image: `${PREFIX}/drinks/brown-sugar-latte.png` },
-      { name: "Hot Chocolate", price: "€6.00", image: `${PREFIX}/drinks/hot-chocolate.png` },
-    ],
-  },
-  {
-    title: "Iced Coffee",
-    note: "Extras: Oat / Almond / Soya / Coconut milk +€0.50 • Coffee shot +€1.00 • Syrup +€0.50",
-    items: [
-      { name: "Iced Americano", price: "€5.00", image: `${PREFIX}/drinks/iced-coffee.png` },
-      { name: "Iced Latte", price: "€6.50", image: `${PREFIX}/drinks/iced-coffee.png` },
-      { name: "Iced Mocha", price: "€7.00", image: `${PREFIX}/drinks/iced-coffee.png` },
-      { name: "Iced Mocha White", price: "€7.50", image: `${PREFIX}/drinks/iced-coffee.png` },
-      { name: "Iced Caramel Latte", price: "€7.50", image: `${PREFIX}/drinks/iced-pistachio.png` },
-      { name: "Iced Vanilla Latte", price: "€7.50", image: `${PREFIX}/drinks/iced-pistachio.png` },
-      { name: "Iced Pistachio Latte", price: "€7.50", image: `${PREFIX}/drinks/iced-pistachio.png` },
-    ],
-  },
-  {
-    title: "Specialty Coffee",
-    subtitle: "Ethiopian • Colombian • Brazilian",
-    items: [
-      { name: "V60 Filter Coffee", price: "€6.50", image: `${PREFIX}/drinks/v60.png` },
-      { name: "Cold Brew", price: "€7.50", image: `${PREFIX}/drinks/cold-brew.png` },
-      { name: "Spanish Latte", price: "€6.50", image: `${PREFIX}/drinks/brown-sugar-latte.png` },
-    ],
-  },
-  {
-    title: "Matcha & Hojicha",
-    subtitle: "Best Matcha in Amsterdam",
-    items: [
-      { name: "Matcha Latte", price: "€6.50", image: `${PREFIX}/drinks/matcha-latte.png` },
-      { name: "Matcha Vanilla", price: "€7.50", image: `${PREFIX}/drinks/matcha-latte.png` },
-      { name: "Matcha Strawberry", price: "€7.50", image: `${PREFIX}/drinks/matcha-strawberry.png` },
-      { name: "Matcha Mango", price: "€7.50", image: `${PREFIX}/drinks/matcha-strawberry.png` },
-      { name: "Hojicha Latte", price: "€6.50", image: `${PREFIX}/drinks/hojicha.png` },
-    ],
-  },
-  {
-    title: "Indian Chai",
-    items: [
-      { name: "Chai Latte", price: "€6.00", image: `${PREFIX}/drinks/chai.png` },
-      { name: "Chai Masala", price: "€6.00", image: `${PREFIX}/drinks/chai.png` },
-      { name: "Chai Vanilla", price: "€6.00", image: `${PREFIX}/drinks/chai.png` },
-      { name: "Chai Lemon Grass", price: "€7.00", image: `${PREFIX}/drinks/chai.png` },
-      { name: "Dirty Chai", price: "€7.00", image: `${PREFIX}/drinks/chai.png`, badge: "Coffee + Chai" },
-    ],
-  },
-  {
-    title: "Tea",
-    items: [
-      { name: "Tea (choose our flavours)", price: "€3.50", image: `${PREFIX}/drinks/tea.png` },
-      { name: "Fresh Mint Tea", price: "€3.50", image: `${PREFIX}/drinks/tea.png` },
-      { name: "Fresh Ginger Tea", price: "€3.50", image: `${PREFIX}/drinks/tea.png` },
-      { name: "Fresh Lemon Tea", price: "€3.50", image: `${PREFIX}/drinks/tea.png` },
-      { name: "Fresh Combination", price: "€4.50 / €5.50", image: `${PREFIX}/drinks/tea.png` },
-    ],
-  },
-];
+import { getDrinkSections } from "../data/menu";
 
 export default function CoffeePastryPage() {
+  const menuSections = getDrinkSections();
   const [activeSection, setActiveSection] = useState(0);
 
   return (
@@ -179,7 +93,7 @@ export default function CoffeePastryPage() {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
               {section.items.map((item, itemIdx) => (
                 <motion.div
-                  key={item.name}
+                  key={item.id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

@@ -4,162 +4,22 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
+import { getActiveMenuSections, toppings } from "../data/menu";
 
-interface MenuItem { name: string; price: string; note?: string; }
-interface MenuCategory { id: string; label: string; emoji: string; image: string; imageAlt: string; items: MenuItem[]; note?: string; }
-
-const menuCategories: MenuCategory[] = [
-  {
-    id: "stroopwafels",
-    label: "Stroopwafels",
-    emoji: "🧇",
-    image: "/stroopwafel-toppings.png",
-    imageAlt: "Assorted stroopwafels with creative toppings — chocolate, caramel, pistachio and berries",
-    note: "Choose your favourite topping!",
-    items: [
-      { name: "Stroopwafel Classic", price: "€7.00" },
-      { name: "Strawberry Cup", price: "€8.00" },
-      { name: "Strawberry Choco", price: "€10.00" },
-      { name: "Dubai Cup", price: "€13.50", note: "Our premium creation" },
-    ],
-  },
-  {
-    id: "coffee",
-    label: "Coffee",
-    emoji: "☕",
-    image: "/matcha-coffee.png",
-    imageAlt: "Specialty coffee and matcha latte at The Stroopist Amsterdam",
-    note: "Ethiopian • Colombian • Brazilian beans",
-    items: [
-      { name: "Espresso", price: "€3.00" },
-      { name: "Espresso Macchiato", price: "€3.50", note: "Recommended" },
-      { name: "Americano", price: "€4.00" },
-      { name: "Cortado", price: "€4.00" },
-      { name: "Latte", price: "€4.50" },
-      { name: "Flat White", price: "€4.50" },
-      { name: "Mocha", price: "€5.00", note: "Recommended" },
-      { name: "Cappuccino", price: "€5.00" },
-      { name: "Brown Sugar Latte", price: "€5.50" },
-      { name: "Hot Chocolate", price: "€6.00" },
-    ],
-  },
-  {
-    id: "iced",
-    label: "Iced Coffee",
-    emoji: "🧊",
-    image: "/matcha-coffee.png",
-    imageAlt: "Iced specialty coffee drinks at The Stroopist",
-    items: [
-      { name: "Iced Americano", price: "€5.00" },
-      { name: "Iced Latte", price: "€6.50" },
-      { name: "Iced Mocha", price: "€7.00" },
-      { name: "Iced Mocha White", price: "€7.50" },
-      { name: "Iced Caramel Latte", price: "€7.50" },
-      { name: "Iced Vanilla Latte", price: "€7.50" },
-      { name: "Iced Pistachio Latte", price: "€7.50" },
-    ],
-  },
-  {
-    id: "specialty",
-    label: "Specialty",
-    emoji: "✨",
-    image: "/matcha-coffee.png",
-    imageAlt: "V60 pour-over filter coffee and cold brew at The Stroopist",
-    items: [
-      { name: "V60 Filter Coffee", price: "€6.50" },
-      { name: "Cold Brew", price: "€7.50" },
-      { name: "Spanish Latte", price: "€6.50" },
-    ],
-  },
-  {
-    id: "matcha",
-    label: "Matcha & Hojicha",
-    emoji: "🍵",
-    image: "/matcha-coffee.png",
-    imageAlt: "Japanese matcha latte — one of the best in Amsterdam",
-    note: "Best matcha in Amsterdam!",
-    items: [
-      { name: "Matcha Latte", price: "€6.50" },
-      { name: "Matcha Vanilla", price: "€7.50" },
-      { name: "Matcha Strawberry", price: "€7.50" },
-      { name: "Matcha Mango", price: "€7.50" },
-      { name: "Hojicha Latte", price: "€6.50" },
-    ],
-  },
-  {
-    id: "chai",
-    label: "Indian Chai",
-    emoji: "🫖",
-    image: "/matcha-coffee.png",
-    imageAlt: "Authentic Indian chai latte at The Stroopist café",
-    items: [
-      { name: "Chai Latte", price: "€6.00" },
-      { name: "Chai Masala", price: "€6.00" },
-      { name: "Chai Vanilla", price: "€6.00" },
-      { name: "Chai Lemon Grass", price: "€7.00" },
-      { name: "Dirty Chai", price: "€7.00" },
-    ],
-  },
-  {
-    id: "waffles",
-    label: "Waffles",
-    emoji: "🍫",
-    image: "/breakfast-spread.png",
-    imageAlt: "Belgian waffles with chocolate and strawberry toppings",
-    items: [
-      { name: "Waffle Classic", price: "€6.50" },
-      { name: "Waffle Ice Cream & Sauce", price: "€11.00" },
-      { name: "Waffle Strawberry Choco-Dream", price: "€11.50" },
-      { name: "Waffle Choco-Cream + Strawberry", price: "€11.00" },
-    ],
-  },
-  {
-    id: "smoothies",
-    label: "Smoothies",
-    emoji: "🥤",
-    image: "/breakfast-spread.png",
-    imageAlt: "Fresh fruit smoothies at The Stroopist",
-    items: [
-      { name: "Sunshine (Pineapple + Mango + Strawberry)", price: "€8.50" },
-      { name: "Paradise (Mango + Banana)", price: "€8.50" },
-      { name: "Tropical (Strawberry + Banana)", price: "€8.50" },
-      { name: "Açaí (Açaí + Banana)", price: "€8.50" },
-    ],
-  },
-  {
-    id: "breakfast",
-    label: "Breakfast & Lunch",
-    emoji: "🍳",
-    image: "/breakfast-spread.png",
-    imageAlt: "Fresh breakfast spread including toast, yogurt granola and pastries",
-    items: [
-      { name: "Toast Peanut Butter & Banana", price: "€5.50" },
-      { name: "Toast Cheese & Ham", price: "€7.00" },
-      { name: "Toast Cheese & Tomato", price: "€7.00" },
-      { name: "Toast Tuna Cream & Fresh Fruit", price: "€5.50" },
-      { name: "Yoghurt, Granola & Fresh Fruit", price: "€9.50" },
-    ],
-  },
-  {
-    id: "pastries",
-    label: "Pastries",
-    emoji: "🥐",
-    image: "/breakfast-spread.png",
-    imageAlt: "Pastries and cakes",
-    items: [
-      { name: "Flat Croissants", price: "€5.50" },
-      { name: "Gluten-Free Brownies", price: "€6.00" },
-      { name: "NY Cheesecake", price: "€6.50" },
-      { name: "Dutch Apple Pie + Whipped Cream", price: "€6.50" },
-    ],
-  },
-];
-
-const toppings = [
-  "Fresh fruit","Pistachio sauce","Bueno sauce","Whipped cream",
-  "Scoop Ice cream","Lotus sauce","Crumble Oreo","White chocolate sauce",
-  "Nutella","Caramel","Dark chocolate",
-];
+// Build the category list from centralized data
+const menuCategories = getActiveMenuSections().map((section) => ({
+  id: section.id,
+  label: section.title,
+  emoji: section.emoji || "📋",
+  image: section.categoryImage || "/breakfast-spread.png",
+  imageAlt: `${section.title} at The Stroopist Amsterdam`,
+  note: section.note,
+  items: section.items.map((item) => ({
+    name: item.name,
+    price: item.price,
+    note: item.note,
+  })),
+}));
 
 export default function Menu() {
   const [activeCategory, setActiveCategory] = useState("stroopwafels");
